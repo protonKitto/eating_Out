@@ -61,3 +61,22 @@ colPerc(table1)
 ```
 
 This table shows that white people live next to KFC.
+
+# Results
+
+## Inferential Results
+
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
+
+
+
+```{r}
+fisherXY(mydata$race,mydata$eatout, printAll = TRUE)
+```
+
+
+
