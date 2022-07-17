@@ -1,6 +1,6 @@
 ---
 title: "Eating Out"
-author: "your name here"
+author: "Gael Gonzalez"
 output: 
   html_document:
     number_sections: true
@@ -14,7 +14,7 @@ date: "`r Sys.Date()`"
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## The data comes from the 1998 General Social Survey answer this question
+# The data comes from the 1998 General Social Survey answer this question
 
 $H_0$ There is no difference among the various races with frequency of eating out  
 $H_A$ There is a statistical difference between at least two races with the frequency of eating out  
@@ -32,10 +32,54 @@ mydata <- select(GSS,race,age,eatout)
 mydata <- na.omit(mydata)
 ```
 
+# Methods
+
+Response variable is categorical: dine out last week? yes or no?
+
+Explanatory variable is race, it, too, is a categorical variable so we use cat~cat
+
+Inference: chi-squared and fisher exact tests
+
+# Descriptive Summaries
+
+## Graphical Summary
+
+### Barchart
+
+```{r}
+barchartGC(~race + eatout,data=mydata)
+barchartGC(~race + eatout,data=mydata, type="percent")
+
+```
+
+The first graph shows the whites eating out more than the blacks and the blacks barely eating out with the others.
+
+The second graph shows the percentage of eating, the blacks and the other have increased dining out but not beating the whites. The black has the most percentage of 'no' than the whites and the others.
+
+## Numerical Summary
+
+```{r}
+table1 <- xtabs(~race + eatout,data=mydata)
+rowPerc(table1)
+colPerc(table1)
+```
+
+This table shows that white people live next to KFC.
+
+# Results
+
+## Inferential Results
+
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
 
 
 
+```{r}
+fisherXY(mydata$race,mydata$eatout, printAll = TRUE)
+```
 
-
-
-
+Chi-Squared text shows that none of the 3 'Count Data' ratio aren't equal to 1 and there are more 'yes' and 'no' from the whites than the blacks. The first ratio is 2.206067, then the second ratio is 1.902047 and finally, the third ratio is 0.8624984.
