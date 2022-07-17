@@ -44,8 +44,13 @@ Inference: chi-squared and fisher exact tests
 
 ## Graphical Summary
 
+### Barchart
 
+```{r}
+barchartGC(~race + eatout,data=mydata)
+barchartGC(~race + eatout,data=mydata, type="percent")
 
+```
 
 
 
