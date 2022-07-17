@@ -52,6 +52,10 @@ barchartGC(~race + eatout,data=mydata, type="percent")
 
 ```
 
+The first graph shows the whites eating out more than the blacks and the blacks barely eating out with the others.
+
+The second graph shows the percentage of eating, the blacks and the other have increased dining out but not beating the whites. The black has the most percentage of 'no' than the whites and the others.
+
 ## Numerical Summary
 
 ```{r}
@@ -78,5 +82,4 @@ fisher.test(table1)
 fisherXY(mydata$race,mydata$eatout, printAll = TRUE)
 ```
 
-
-
+Chi-Squared text shows that none of the 3 'Count Data' ratio aren't equal to 1 and there are more 'yes' and 'no' from the whites than the blacks. The first ratio is 2.206067, then the second ratio is 1.902047 and finally, the third ratio is 0.8624984.
